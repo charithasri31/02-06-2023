@@ -10,9 +10,13 @@
             var firstName=document.getElementById("firstname").value
             var mobile=document.getElementById("mobile").value
             var email=document.getElementById("email").value
+            var password=document.getElementById("password").value
+            var US=document.getElementById("US").value
             var firstNameCheck=/^[a-zA-Z ]+$/
             var mobileCheck=/^[0-9]{10}$/
             var emailCheck=/^[a-z0-9.#]+@[a-z]+\.[a-z]{2,3}$/   //charitha.sri@gmail.com
+            var passwordCheck=/^[a-zA-Z0-9!@#$%^&*~]{4,6}$/
+            var noCheck=/^([0-9]{3})+[0-9]{3}+-[0-9]{4}$/     //(425)555-1234 sample US phone no.
             if(firstName==""||firstName.length<3){
                 alert("Please enter your first name")
                 return false
@@ -29,6 +33,14 @@
                 alert("Please enter valid mail id")
                 return false
             }
+            if(!password.match(passwordCheck)){
+                alert("please check your password")
+                return false
+            }
+            if(!US.match(noCheck)){
+                alert("please enter valid US no.")
+                return false
+            }
             return true
         }
     </script>
@@ -38,6 +50,8 @@
         <p><input type="text" placeholder="Enter firstname" id="firstname"/></p>
         <p><input placeholder="Enter mobile number" id="mobile"/></p>
         <p><input placeholder="Enter your mail Id" id="email"/></p>
+        <p><input placeholder="Enter password" id="password"/></p>
+        <p><input placeholder="Enter your US ph no." id="US"/></p>
         <button>Submit</button>
     </form>
 </body>
